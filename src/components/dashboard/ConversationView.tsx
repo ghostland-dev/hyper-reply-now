@@ -90,7 +90,7 @@ export function ConversationView({ conversationId, className }: ConversationView
     return (
       <div className={cn("flex flex-col h-full justify-center items-center text-center p-6", className)}>
         <div className="max-w-sm">
-          <MessageSquare size={48} className="mx-auto text-muted-foreground" />
+          <MessageSquare className="mx-auto text-muted-foreground w-12 h-12" />
           <h3 className="mt-4 text-lg font-semibold">Aucune conversation sélectionnée</h3>
           <p className="mt-2 text-muted-foreground">
             Sélectionnez une conversation dans la liste à gauche pour afficher son contenu.
@@ -349,7 +349,7 @@ export function ConversationView({ conversationId, className }: ConversationView
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      <Trello size={16} className="mr-2" />
+                      <Trello className="mr-2 w-4 h-4" />
                       <span className="text-sm">Trello</span>
                     </div>
                     <Button variant="ghost" size="sm" className="h-7 w-7 p-0">
