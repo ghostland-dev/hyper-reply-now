@@ -83,10 +83,11 @@ interface ConversationListProps {
   onSelectConversation: (id: number) => void;
   selectedId?: number;
   className?: string;
+  filter?: string; // Added this property to match the usage in the pages
 }
 
-export function ConversationList({ onSelectConversation, selectedId, className }: ConversationListProps) {
-  const [filter, setFilter] = useState<string | null>(null);
+export function ConversationList({ onSelectConversation, selectedId, className, filter: initialFilter }: ConversationListProps) {
+  const [filter, setFilter] = useState<string | null>(initialFilter || null);
   
   const filteredConversations = filter 
     ? conversations.filter(c => c.channel === filter)
