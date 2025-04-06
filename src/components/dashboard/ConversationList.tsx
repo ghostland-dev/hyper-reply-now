@@ -136,7 +136,8 @@ export function ConversationList({ onSelectConversation, selectedId, className, 
       case 'phone':
         return <Phone size={16} className="text-purple-500" />;
       case 'whatsapp':
-        return <WhatsAppIcon size={16} className="text-green-600" />;
+        // Fix: Use width and height instead of size prop for custom SVG component
+        return <WhatsAppIcon width={16} height={16} className="text-green-600" />;
       default:
         return <MessageSquare size={16} />;
     }
@@ -184,6 +185,7 @@ export function ConversationList({ onSelectConversation, selectedId, className, 
                 <span>Téléphone</span>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setFilter('whatsapp')}>
+                {/* Fix: Use width and height instead of size prop for custom SVG component */}
                 <WhatsAppIcon className="mr-2 h-4 w-4 text-green-600" />
                 <span>WhatsApp</span>
               </DropdownMenuItem>
@@ -245,8 +247,6 @@ function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
