@@ -76,6 +76,40 @@ const conversations = [
     sla: { level: 'critical', remainingTime: -45 },
     unread: false,
     priority: "high"
+  },
+  // Add WhatsApp conversations
+  {
+    id: 6,
+    customer: "Pierre Dumont",
+    subject: "Suivi de commande",
+    message: "Bonjour, je voudrais savoir où en est ma commande #45678. Je n'ai pas reçu de confirmation d'expédition...",
+    channel: "whatsapp",
+    timestamp: "11:05",
+    sla: { level: 'good', remainingTime: 15 },
+    unread: true,
+    priority: "normal"
+  },
+  {
+    id: 7,
+    customer: "Marie Leroy",
+    subject: "Problème avec l'application mobile",
+    message: "L'application se bloque systématiquement quand j'essaie d'ajouter un article au panier...",
+    channel: "whatsapp",
+    timestamp: "Hier",
+    sla: { level: 'warning', remainingTime: 5 },
+    unread: true,
+    priority: "high"
+  },
+  {
+    id: 8,
+    customer: "Antoine Mercier",
+    subject: "Question sur la garantie",
+    message: "Bonjour, j'ai acheté un produit le mois dernier et il est déjà défectueux. Comment puis-je faire jouer la garantie?",
+    channel: "whatsapp",
+    timestamp: "Mar",
+    sla: { level: 'good', remainingTime: 30 },
+    unread: false,
+    priority: "normal"
   }
 ];
 
@@ -101,6 +135,8 @@ export function ConversationList({ onSelectConversation, selectedId, className, 
         return <MessageSquare size={16} className="text-green-500" />;
       case 'phone':
         return <Phone size={16} className="text-purple-500" />;
+      case 'whatsapp':
+        return <WhatsAppIcon size={16} className="text-green-600" />;
       default:
         return <MessageSquare size={16} />;
     }
@@ -146,6 +182,10 @@ export function ConversationList({ onSelectConversation, selectedId, className, 
               <DropdownMenuItem onClick={() => setFilter('phone')}>
                 <Phone className="mr-2 h-4 w-4 text-purple-500" />
                 <span>Téléphone</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setFilter('whatsapp')}>
+                <WhatsAppIcon className="mr-2 h-4 w-4 text-green-600" />
+                <span>WhatsApp</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
@@ -196,6 +236,29 @@ export function ConversationList({ onSelectConversation, selectedId, className, 
         ))}
       </div>
     </div>
+  );
+}
+
+// WhatsApp Icon component
+function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+      <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
+      <path d="M14 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
+      <path d="M8.5 14.5s1.5 1 3.5 1 3.5-1 3.5-1" />
+    </svg>
   );
 }
 

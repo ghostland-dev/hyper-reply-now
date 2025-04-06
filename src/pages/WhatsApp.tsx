@@ -7,6 +7,7 @@ import ConversationView from '@/components/dashboard/ConversationView';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const WhatsApp = () => {
+  // Initialize with the ID of a WhatsApp conversation (6)
   const [selectedConversation, setSelectedConversation] = React.useState<number | undefined>(6);
   const isMobile = useIsMobile();
   
