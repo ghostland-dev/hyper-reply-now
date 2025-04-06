@@ -191,7 +191,7 @@ const Support = () => {
                         </div>
                         <div>
                           <h3 className="font-medium">Email</h3>
-                          <p className="text-sm text-muted-foreground">Temps de réponse: < 24h</p>
+                          <p className="text-sm text-muted-foreground">Temps de réponse: &lt; 24h</p>
                         </div>
                       </div>
                       <p className="text-sm">
